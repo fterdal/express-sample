@@ -4,12 +4,14 @@ const morgan = require('morgan')
 
 app.use(morgan('dev'))
 
+
+app.use(express.static('public'))
+
 app.get('/', (req, res, next) => {
   // I'm going to interrupt requests for index.html 😼
   res.send('hello')
 })
 
-app.use(express.static('public'))
 // app.use((req, res, next) => {
 //   const file = fs.read('./public/' + req.url)
 //   if (!file) res.sendStatus(404)
